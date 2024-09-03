@@ -32,10 +32,10 @@ namespace TaskList.Controllers
         [HttpPost("/tarefa")]
         public IActionResult PostTask([FromBody] TaskModel newTask, [FromServices] AppDbContext context) 
         {
-            var task = context.Tarefas.Add(newTask);
+            context.Tarefas.Add(newTask);
             context.SaveChanges();
 
-            return Ok(task);
+            return Ok(newTask);
         }
 
         //Atualizar uma tarefa
